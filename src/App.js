@@ -3,6 +3,11 @@ import Header from "./componentes/Header";
 import AgregarCita from "./componentes/AgregarCita";
 
 class App extends Component {
+
+    crearCita = () => {
+        console.log('Desde app.js')
+    };
+
     render() {
         return (
             <div className="container">
@@ -11,7 +16,9 @@ class App extends Component {
                 />
                 <div className="row">
                     <div className="col-md-6">
-                        <AgregarCita/>
+                        <AgregarCita
+                            crearCita={this.crearCita}
+                        />
                     </div>
                 </div>
             </div>
