@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Header from "./componentes/Header";
 import AgregarCita from "./componentes/AgregarCita";
+import ListaCitas from "./componentes/ListaCitas";
 
 class App extends Component {
 
@@ -30,6 +31,11 @@ class App extends Component {
                     <div className="col-md-6">
                         <AgregarCita
                             crearCita={this.crearCita}
+                        />
+                    </div>
+                    <div className="col-md-6">
+                        <ListaCitas
+                            citas={this.state.citas}
                         />
                     </div>
                 </div>
