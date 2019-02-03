@@ -4,8 +4,20 @@ import AgregarCita from "./componentes/AgregarCita";
 
 class App extends Component {
 
-    crearCita = (cita) => {
-        console.log(cita);
+    state = {
+        citas: []
+    };
+
+    crearCita = (nuevaCita) => {
+        // copia de nuestro array citas de arriba si al comienzo de nuestro array añadimos nuevaCita, añadiría la cita al ppcio
+        const citas = [...this.state.citas, nuevaCita];
+
+        console.log(citas);
+
+        // reescribir la propiedad del state
+        this.setState({
+            citas
+        })
     };
 
     render() {
