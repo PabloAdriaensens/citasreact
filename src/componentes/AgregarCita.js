@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import uuid from 'uuid';
 
 class AgregarCita extends Component {
 
@@ -14,13 +15,22 @@ class AgregarCita extends Component {
     crearNuevaCita = e => {
         e.preventDefault();
 
-        console.log(this.nombreMascotaRef.current.value);
-        console.log(this.propietarioRef.current.value);
-        console.log(this.fechaRef.current.value);
-        console.log(this.horaRef.current.value);
-        console.log(this.sintomasRef.current.value);
+        const mascota = this.nombreMascotaRef.current.value,
+            propietario = this.propietarioRef.current.value,
+            fecha = this.fechaRef.current.value,
+            hora = this.horaRef.current.value,
+            sintomas = this.sintomasRef.current.value;
 
-        this.props.crearCita();
+        const nuevaCita = {
+            id: uuid(),
+            mascota,
+            propietario,
+            fecha,
+            hora,
+            sintomas
+        };
+
+        this.props.crearCita(nuevaCita);
     };
 
     render() {
@@ -32,13 +42,15 @@ class AgregarCita extends Component {
                         <div className="form-group row">
                             <label className="col-sm-4 col-lg-2 col-form-label">Nombre Mascota</label>
                             <div className="col-sm-8 col-lg-10">
-                                <input ref={this.nombreMascotaRef} type="text" className="form-control" placeholder="Nombre Mascota"/>
+                                <input ref={this.nombreMascotaRef} type="text" className="form-control"
+                                       placeholder="Nombre Mascota"/>
                             </div>
                         </div>
                         <div className="form-group row">
                             <label className="col-sm-4 col-lg-2 col-form-label">Nombre Dueño</label>
                             <div className="col-sm-8 col-lg-10">
-                                <input ref={this.propietarioRef} type="text" className="form-control" placeholder="Nombre Dueño de la Mascota"/>
+                                <input ref={this.propietarioRef} type="text" className="form-control"
+                                       placeholder="Nombre Dueño de la Mascota"/>
                             </div>
                         </div>
 

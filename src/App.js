@@ -4,8 +4,8 @@ import AgregarCita from "./componentes/AgregarCita";
 
 class App extends Component {
 
-    crearCita = () => {
-
+    crearCita = (cita) => {
+        console.log(cita);
     };
 
     render() {
